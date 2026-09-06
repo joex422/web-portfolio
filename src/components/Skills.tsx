@@ -1,6 +1,7 @@
 import { Pill } from "./Pill";
 import { Accordion } from "./Accordion";
 import { Reveal } from "./Reveal";
+import { ScrollScrubber } from "./ScrollScrubber";
 import { skillCategories } from "@/data/resume";
 
 export function Skills() {
@@ -14,6 +15,10 @@ export function Skills() {
           Grouped by domain — expand a category for the full list.
         </p>
       </Reveal>
+
+      <div className="mx-auto mb-10 max-w-lg">
+        <ScrollScrubber framesDir="/frames/skills" frameCount={120} aspectRatio="16/9" />
+      </div>
 
       <div className="flex flex-col">
         {skillCategories.map((category, i) => (
