@@ -1,6 +1,5 @@
 import { Hero } from "@/components/Hero";
 import { TechStack } from "@/components/TechStack";
-import { Summary } from "@/components/Summary";
 import { Skills } from "@/components/Skills";
 import { Experience } from "@/components/Experience";
 import { SelfDirected } from "@/components/SelfDirected";
@@ -16,7 +15,6 @@ export default function Home() {
         <ScrollScrubber framesDir="/frames/hero" frameCount={60} aspectRatio="16/9" />
       </section>
       <TechStack />
-      <Summary />
       <Skills />
       <Experience />
       <SelfDirected />

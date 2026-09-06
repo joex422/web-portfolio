@@ -13,6 +13,36 @@ export const profile = {
     "Certified Kubernetes Administrator running production container platforms and Linux fleets in enterprise and public-sector environments. Day-2 operations across the full cluster lifecycle: node lifecycle and etcd health, RBAC and SCC policy, network policies, routes and HAProxy ingress, resource quotas, and persistent storage. First-responder experience tracing failures from node to pod to service, with root-cause analysis fed back into runbooks, and ELK/Prometheus observability to catch failures before users do. Also owns the Linux OS layer beneath the platform — patching cycles, kernel and resource tuning, hardening, and storage — plus highly available data tiers and secrets through Vault and CyberArk. Currently supporting a government AI infrastructure programme under IM8-aligned security controls. Computing Science honours graduate, Singapore Institute of Technology.",
 };
 
+// Hero terminal: the professional summary, split into chunks that each type
+// out, hold, then retract before the next one types in.
+export const terminalLines: { command: string; output: string }[] = [
+  {
+    command: "whoami",
+    output:
+      "Certified Kubernetes Administrator running production container platforms and Linux fleets in enterprise and public-sector environments.",
+  },
+  {
+    command: "kubectl get cluster-ops",
+    output:
+      "Day-2 operations across the full cluster lifecycle: node lifecycle and etcd health, RBAC and SCC policy, network policies, routes and HAProxy ingress, resource quotas, and persistent storage.",
+  },
+  {
+    command: "journalctl -u incident-response",
+    output:
+      "First responder tracing failures from node to pod to service, with root-cause analysis fed back into runbooks, and ELK/Prometheus observability to catch failures before users do.",
+  },
+  {
+    command: "uname -a && vault status",
+    output:
+      "Owns the Linux OS layer beneath the platform — patching cycles, kernel and resource tuning, hardening, and storage — plus highly available data tiers and secrets through Vault and CyberArk.",
+  },
+  {
+    command: "cat current_role.txt",
+    output:
+      "Currently supporting a government AI infrastructure programme under IM8-aligned security controls. Computing Science honours graduate, Singapore Institute of Technology.",
+  },
+];
+
 export const techStack: { label: string; logo: string }[] = [
   { label: "Kubernetes", logo: "kubernetes" },
   { label: "OpenShift", logo: "openshift" },

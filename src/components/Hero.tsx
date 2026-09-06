@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import { Pill } from "./Pill";
+import { Terminal } from "./Terminal";
 import { profile } from "@/data/resume";
 
 const container = {
@@ -52,6 +53,10 @@ export function Hero() {
         <Pill href={profile.resumeHref} tone="solid">
           Download Résumé (PDF)
         </Pill>
+      </motion.div>
+
+      <motion.div variants={item} className="mt-6 w-full max-w-2xl">
+        <Terminal />
       </motion.div>
     </motion.section>
   );
