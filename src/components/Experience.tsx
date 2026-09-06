@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Accordion } from "./Accordion";
 import { Reveal } from "./Reveal";
 import { experience } from "@/data/resume";
@@ -17,13 +18,26 @@ export function Experience() {
             key={`${job.company}-${job.role}`}
             defaultOpen={i === 0}
             header={
-              <div>
-                <h3 className="text-lg font-semibold tracking-tight">
-                  {job.role} — {job.company}
-                </h3>
-                <span className="font-mono text-[13px] tracking-tight text-muted-foreground">
-                  {job.dates}
-                </span>
+              <div className="flex items-center gap-4">
+                {job.logo && (
+                  <div className="flex h-9 w-16 shrink-0 items-center justify-start sm:h-10 sm:w-20">
+                    <Image
+                      src={job.logo}
+                      alt={`${job.company} logo`}
+                      width={160}
+                      height={80}
+                      className="h-full w-full object-contain object-left"
+                    />
+                  </div>
+                )}
+                <div>
+                  <h3 className="text-lg font-semibold tracking-tight">
+                    {job.role} — {job.company}
+                  </h3>
+                  <span className="font-mono text-[13px] tracking-tight text-muted-foreground">
+                    {job.dates}
+                  </span>
+                </div>
               </div>
             }
           >

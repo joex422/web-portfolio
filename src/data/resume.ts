@@ -150,6 +150,7 @@ export const skillCategories: { name: string; items: string[] }[] = [
 export const experience: {
   role: string;
   company: string;
+  logo?: string;
   dates: string;
   context?: string;
   bullets: string[];
@@ -157,6 +158,7 @@ export const experience: {
   {
     role: "DevSecOps / Platform Engineer",
     company: "NCS",
+    logo: "/companies/ncs.png",
     dates: "Nov 2025 — Present",
     context: "Video intelligence and enterprise AI infrastructure platforms — on-prem estate, government security baseline.",
     bullets: [
@@ -176,6 +178,7 @@ export const experience: {
   {
     role: "DevOps / Infrastructure Engineer",
     company: "Singtel",
+    logo: "/companies/singtel.webp",
     dates: "Sep 2024 — Jul 2025",
     context: "Infrastructure, delivery, and operations behind Singtel's NaaS, 5G, and multi-access edge computing (MEC) products.",
     bullets: [
