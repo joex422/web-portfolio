@@ -232,8 +232,11 @@ export const experience: {
 
 export const selfDirected: { bullets: string[] } = {
   bullets: [
-    "Production-grade K3s platform (homelab, continuously operated): multi-node cluster run through real upgrade, certificate-rotation, and failure scenarios, with GitOps delivery, ingress and TLS termination, persistent storage classes, RBAC and namespace quotas, private image registry, and a full Prometheus/Grafana + ELK observability stack — built to enterprise patterns",
+    "Two-tier homelab Kubernetes estate, continuously operated: a 3-node kubeadm cluster (Cilium CNI, MetalLB L2 load balancing, containerd) running production workloads, plus a K3s cluster for development — both run through real upgrade, certificate-rotation, and failure scenarios",
+    "GitOps delivery with ArgoCD in an app-of-apps pattern — a root Application bootstraps every other workload from Git, with automated sync, pruning, and self-heal so cluster drift is reconciled rather than patched in place",
+    "Hosts this portfolio and internal homelab services on the platform, with ingress and TLS termination, persistent storage classes, RBAC and namespace quotas, a private image registry, and a full Prometheus/Grafana + ELK observability stack — built to enterprise patterns",
     "HA data tier: MariaDB Galera cluster behind an evaluated proxy layer (HAProxy / MaxScale / ProxySQL), with backup, restore, and node-loss drills",
+    "Platform roadmap in progress: Gateway API for HTTP routing in place of classic ingress, and Trivy image and manifest scanning wired into the delivery pipeline",
     "Bash-based CKA exam simulator running against a disposable k3d sandbox; AWS serverless projects for SAA preparation",
   ],
 };
