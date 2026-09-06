@@ -17,7 +17,7 @@ export function Skills() {
       </Reveal>
 
       <div className="mx-auto mb-10 max-w-lg">
-        <ScrollScrubber framesDir="/frames/skills" frameCount={120} aspectRatio="16/9" />
+        <ScrollScrubber framesDir="/frames/skills" frameCount={60} aspectRatio="16/9" />
       </div>
 
       <div className="flex flex-col">

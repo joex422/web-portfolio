@@ -13,7 +13,7 @@ export default function Home() {
     <main className="flex-1">
       <Hero />
       <section className="mx-auto max-w-2xl px-6 py-8">
-        <ScrollScrubber framesDir="/frames/hero" frameCount={120} aspectRatio="16/9" />
+        <ScrollScrubber framesDir="/frames/hero" frameCount={60} aspectRatio="16/9" />
       </section>
       <TechStack />
       <Summary />
