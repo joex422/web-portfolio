@@ -1,0 +1,46 @@
+import { certifications, education } from "@/data/resume";
+
+export function Certifications() {
+  return (
+    <section className="mx-auto max-w-3xl px-6 py-16">
+      <h2 className="mb-10 text-2xl font-semibold tracking-tight">
+        Certifications &amp; Education
+      </h2>
+
+      <div className="flex flex-col gap-6 border-t border-foreground/10 pt-8">
+        {certifications.map((cert) => (
+          <div
+            key={cert.name}
+            className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1"
+          >
+            <div>
+              <p className="font-medium">{cert.name}</p>
+              <p className="text-sm text-foreground/60">
+                {cert.issuer}
+                {cert.id ? ` · ID ${cert.id}` : ""}
+              </p>
+            </div>
+            <span className="font-mono text-[13px] tracking-tight text-muted-foreground">
+              {cert.date}
+            </span>
+          </div>
+        ))}
+
+        {education.map((edu) => (
+          <div
+            key={edu.name}
+            className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1"
+          >
+            <div>
+              <p className="font-medium">{edu.name}</p>
+              <p className="text-sm text-foreground/60">{edu.school}</p>
+            </div>
+            <span className="font-mono text-[13px] tracking-tight text-muted-foreground">
+              {edu.dates}
+            </span>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
