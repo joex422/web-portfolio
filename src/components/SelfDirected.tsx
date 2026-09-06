@@ -10,13 +10,9 @@ export function SelfDirected() {
         </h2>
 
         <div className="border-t border-foreground/10 pt-8">
-          <ul className="flex flex-col gap-4">
+          <ul className="list-disc space-y-4 pl-5 marker:text-foreground/30">
             {selfDirected.bullets.map((bullet, i) => (
-              <li
-                key={i}
-                className="pl-4 text-[15px] leading-relaxed text-foreground/80 [text-indent:-1rem]"
-              >
-                <span className="text-foreground/40">— </span>
+              <li key={i} className="text-[15px] leading-relaxed text-foreground/80">
                 {bullet}
               </li>
             ))}

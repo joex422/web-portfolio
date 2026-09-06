@@ -189,16 +189,6 @@ export const experience: {
       "Wrote Python automation for security (IoC IP filtering) and operations (system health checks)",
     ],
   },
-  {
-    role: "Software Engineer",
-    company: "Urban Farming",
-    dates: "Oct 2022 — Apr 2023",
-    context: "IoT aggregation hub turning raw sensor metrics into crop-yield decisions. (Part-time, alongside degree)",
-    bullets: [
-      "Structured the backend as Spring Boot microservices — ingestion, processing, and API as separate deployable services rather than one process — with a React/Node aggregation layer over real-time IoT sensor metrics",
-      "Gave the farming team one source of truth to optimise irrigation, lighting, and climate control",
-    ],
-  },
 ];
 
 export const selfDirected: { bullets: string[] } = {

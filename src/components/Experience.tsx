@@ -30,13 +30,9 @@ export function Experience() {
             {job.context && (
               <p className="mb-4 text-sm text-foreground/60 italic">{job.context}</p>
             )}
-            <ul className="flex flex-col gap-2.5">
+            <ul className="list-disc space-y-2.5 pl-5 marker:text-foreground/30">
               {job.bullets.map((bullet, j) => (
-                <li
-                  key={j}
-                  className="pl-4 text-[15px] leading-relaxed text-foreground/80 [text-indent:-1rem]"
-                >
-                  <span className="text-foreground/40">— </span>
+                <li key={j} className="text-[15px] leading-relaxed text-foreground/80">
                   {bullet}
                 </li>
               ))}
