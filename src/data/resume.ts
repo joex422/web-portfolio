@@ -13,6 +13,41 @@ export const profile = {
     "Certified Kubernetes Administrator running production container platforms and Linux fleets in enterprise and public-sector environments. Day-2 operations across the full cluster lifecycle: node lifecycle and etcd health, RBAC and SCC policy, network policies, routes and HAProxy ingress, resource quotas, and persistent storage. First-responder experience tracing failures from node to pod to service, with root-cause analysis fed back into runbooks, and ELK/Prometheus observability to catch failures before users do. Also owns the Linux OS layer beneath the platform — patching cycles, kernel and resource tuning, hardening, and storage — plus highly available data tiers and secrets through Vault and CyberArk. Currently supporting a government AI infrastructure programme under IM8-aligned security controls. Computing Science honours graduate, Singapore Institute of Technology.",
 };
 
+export const techStack: { label: string; logo: string }[] = [
+  { label: "Kubernetes", logo: "kubernetes" },
+  { label: "OpenShift", logo: "openshift" },
+  { label: "Docker", logo: "docker" },
+  { label: "Helm", logo: "helm" },
+  { label: "Terraform", logo: "terraform" },
+  { label: "Ansible", logo: "ansible" },
+  { label: "Jenkins", logo: "jenkins" },
+  { label: "GitLab", logo: "gitlab" },
+  { label: "ArgoCD", logo: "argo" },
+  { label: "Git", logo: "git" },
+  { label: "Python", logo: "python" },
+  { label: "Bash", logo: "bash" },
+  { label: "Java", logo: "java" },
+  { label: "Prometheus", logo: "prometheus" },
+  { label: "Grafana", logo: "grafana" },
+  { label: "Elasticsearch", logo: "elasticsearch" },
+  { label: "Kibana", logo: "kibana" },
+  { label: "Logstash", logo: "logstash" },
+  { label: "OpenSearch", logo: "opensearch" },
+  { label: "Zabbix", logo: "zabbix" },
+  { label: "MariaDB", logo: "mariadb" },
+  { label: "MySQL", logo: "mysql" },
+  { label: "MongoDB", logo: "mongodb" },
+  { label: "Redis", logo: "redis" },
+  { label: "HashiCorp Vault", logo: "vault" },
+  { label: "AWS", logo: "aws" },
+  { label: "Azure", logo: "microsoft-azure" },
+  { label: "RHEL", logo: "redhat" },
+  { label: "CentOS", logo: "centos" },
+  { label: "Rocky Linux", logo: "rocky-linux" },
+  { label: "Ubuntu", logo: "ubuntu" },
+  { label: "Windows Server", logo: "microsoft-windows" },
+];
+
 export const skillCategories: { name: string; items: string[] }[] = [
   {
     name: "Kubernetes & Containers",

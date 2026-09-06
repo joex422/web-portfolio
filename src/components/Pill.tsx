@@ -8,18 +8,20 @@ type PillProps = {
 };
 
 const base =
-  "inline-flex items-center rounded-full px-4 py-1.5 font-mono text-[13px] tracking-tight whitespace-nowrap";
+  "inline-flex items-center rounded-full px-4 py-1.5 font-mono text-[13px] tracking-tight whitespace-nowrap transition-all duration-150";
 
 const tones = {
-  outline: "border border-foreground/15 text-foreground/70",
-  solid: "bg-foreground text-background hover:bg-foreground/85 transition-colors",
+  outline:
+    "border border-foreground/15 text-foreground/70 hover:-translate-y-0.5 hover:border-foreground/30 hover:text-foreground",
+  solid: "bg-foreground text-background hover:-translate-y-0.5 hover:bg-foreground/85",
 };
 
 export function Pill({ children, href, tone = "outline" }: PillProps) {
   const className = `${base} ${tones[tone]}`;
 
   if (href) {
-    const external = href.startsWith("http") || href.startsWith("mailto:");
+    const external =
+      href.startsWith("http") || href.startsWith("mailto:") || href.startsWith("tel:");
     if (external) {
       return (
         <a href={href} className={className} target="_blank" rel="noreferrer">
