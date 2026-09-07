@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: portfolio
-  namespace: portfolio-prod
+  name: web-portfolio
+  namespace: web-portfolio
   labels:
     environment: prod
 spec:
   type: LoadBalancer
   selector:
-    app: portfolio
+    app: web-portfolio
   ports:
     - port: 80
       targetPort: 3000
