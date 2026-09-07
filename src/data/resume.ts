@@ -6,7 +6,7 @@ export const profile = {
   phone: "+65 9271 7760",
   email: "joe44824@gmail.com",
   linkedin: { label: "linkedin.com/in/zaw-wana", href: "https://linkedin.com/in/zaw-wana" },
-  github: { label: "github.com/joe44824", href: "https://github.com/joe44824" },
+  github: { label: "github.com/joex422", href: "https://github.com/joex422" },
   site: { label: "joecool.work", href: "https://joecool.work" },
   resumeHref: "/Zaw_Wana_Resume.pdf",
   summary:
@@ -241,12 +241,19 @@ export const selfDirected: { bullets: string[] } = {
   ],
 };
 
-export const certifications: { name: string; issuer: string; date: string; id?: string }[] = [
+export const certifications: {
+  name: string;
+  issuer: string;
+  date: string;
+  id?: string;
+  certificateHref?: string;
+}[] = [
   {
     name: "Certified Kubernetes Administrator (CKA)",
     issuer: "Cloud Native Computing Foundation",
     date: "Aug 2026",
     id: "LF-ijwzjz1ojo",
+    certificateHref: "/certificates/CKA_Zaw_Wana.pdf",
   },
 ];
 
