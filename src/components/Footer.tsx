@@ -10,6 +10,7 @@ export function Footer() {
 
       <div className="flex flex-wrap items-center justify-center gap-3">
         <Pill href={`mailto:${profile.email}`}>{profile.email}</Pill>
+        <Pill href={profile.whatsapp.href}>{profile.whatsapp.label}</Pill>
         <Pill href={profile.linkedin.href}>{profile.linkedin.label}</Pill>
         <Pill href={profile.github.href}>{profile.github.label}</Pill>
       </div>

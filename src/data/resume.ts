@@ -5,6 +5,7 @@ export const profile = {
   location: "Singapore",
   phone: "+65 9271 7760",
   email: "joe44824@gmail.com",
+  whatsapp: { label: "WhatsApp", href: "https://wa.me/6592717760" },
   linkedin: { label: "linkedin.com/in/zaw-wana", href: "https://linkedin.com/in/zaw-wana" },
   github: { label: "github.com/joex422", href: "https://github.com/joex422" },
   site: { label: "joecool.work", href: "https://joecool.work" },

@@ -44,6 +44,7 @@ export function Hero() {
       <motion.div variants={item} className="flex flex-wrap items-center justify-center gap-3">
         <Pill href={`mailto:${profile.email}`}>{profile.email}</Pill>
         <Pill href={`tel:${profile.phone.replace(/\s+/g, "")}`}>{profile.phone}</Pill>
+        <Pill href={profile.whatsapp.href}>{profile.whatsapp.label}</Pill>
         <Pill href={profile.linkedin.href}>{profile.linkedin.label}</Pill>
         <Pill href={profile.github.href}>{profile.github.label}</Pill>
         <Pill href={profile.site.href}>{profile.site.label}</Pill>
