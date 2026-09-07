@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Accordion } from "./Accordion";
 import { Reveal } from "./Reveal";
 import { Timeline, TimelineMarker } from "./Timeline";
+import { ExperienceBody } from "./ExperienceBody";
 import { experience } from "@/data/resume";
 
 export function Experience() {
@@ -43,16 +44,11 @@ export function Experience() {
                 </div>
               }
             >
-              {job.context && (
-                <p className="mb-4 text-sm text-foreground/60 italic">{job.context}</p>
-              )}
-              <ul className="list-disc space-y-2.5 pl-5 marker:text-foreground/30">
-                {job.bullets.map((bullet, j) => (
-                  <li key={j} className="text-[15px] leading-relaxed text-foreground/80">
-                    {bullet}
-                  </li>
-                ))}
-              </ul>
+              <ExperienceBody
+                context={job.context}
+                tags={job.tags}
+                bullets={job.bullets}
+              />
             </Accordion>
           </div>
         ))}

@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import { Pill } from "./Pill";
 import { Terminal } from "./Terminal";
+import { HeroBackdrop } from "./HeroBackdrop";
 import { profile } from "@/data/resume";
 
 const container = {
@@ -21,8 +22,10 @@ export function Hero() {
       initial="hidden"
       animate="show"
       variants={container}
-      className="flex flex-col items-center gap-8 px-6 pt-28 pb-24 text-center sm:pt-36 sm:pb-32"
+      className="relative isolate flex flex-col items-center gap-8 px-6 pt-28 pb-24 text-center sm:pt-36 sm:pb-32"
     >
+      <HeroBackdrop />
+
       <motion.h1
         variants={item}
         className="max-w-5xl text-[clamp(3rem,11vw,8.5rem)] leading-[0.95] font-bold tracking-tight"

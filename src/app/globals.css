@@ -4,7 +4,9 @@
   --background: #ffffff;
   --foreground: #111111;
   --muted-foreground: #6b6b6b;
-  --accent: #8fb4c6;
+  --accent: #f190a7;
+  --accent-deep: #d95f7f;
+  --accent-soft: #ffd6e2;
 }
 
 /* Scoped inversion: any descendant using bg-background/text-foreground/etc.
@@ -21,6 +23,8 @@
   --color-foreground: var(--foreground);
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
+  --color-accent-deep: var(--accent-deep);
+  --color-accent-soft: var(--accent-soft);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -62,8 +66,69 @@ body {
   animation-play-state: paused;
 }
 
+/* Hero backdrop: slow drifting orbs. Transform/opacity only so they stay on
+   the compositor and never trigger layout during the hero's scroll range. */
+@keyframes drift-a {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(6%, -8%, 0) scale(1.12);
+  }
+}
+
+@keyframes drift-b {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1.08);
+  }
+  50% {
+    transform: translate3d(-7%, 6%, 0) scale(0.95);
+  }
+}
+
+@keyframes drift-c {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(0.96);
+  }
+  50% {
+    transform: translate3d(4%, 9%, 0) scale(1.1);
+  }
+}
+
+.animate-drift-a {
+  animation: drift-a 19s ease-in-out infinite;
+}
+.animate-drift-b {
+  animation: drift-b 24s ease-in-out infinite;
+}
+.animate-drift-c {
+  animation: drift-c 31s ease-in-out infinite;
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 46s linear infinite;
+}
+
+.animate-spin-slower {
+  animation: spin-slow 78s linear infinite reverse;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .animate-marquee {
+  .animate-marquee,
+  .animate-drift-a,
+  .animate-drift-b,
+  .animate-drift-c,
+  .animate-spin-slow,
+  .animate-spin-slower {
     animation: none;
   }
 }
