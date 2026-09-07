@@ -13,7 +13,7 @@ export function Accordion({ header, children, defaultOpen = false }: AccordionPr
   const [open, setOpen] = useState(defaultOpen);
 
   return (
-    <div className="border-t border-foreground/10 py-6">
+    <div className="border-t border-hairline py-6">
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
@@ -24,7 +24,7 @@ export function Accordion({ header, children, defaultOpen = false }: AccordionPr
         <motion.span
           animate={{ rotate: open ? 45 : 0 }}
           transition={{ duration: 0.2, ease: "easeOut" }}
-          className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-foreground/15 text-foreground/50"
+          className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-hairline text-foreground/50"
         >
           +
         </motion.span>

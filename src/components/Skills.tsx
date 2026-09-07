@@ -8,7 +8,7 @@ export function Skills() {
   return (
     <section className="mx-auto max-w-3xl px-6 py-16">
       <Reveal>
-        <h2 className="mb-2 text-2xl font-semibold tracking-tight">
+        <h2 className="mb-2 text-2xl font-medium tracking-[-0.04em]">
           Core Technical Skills
         </h2>
         <p className="mb-10 text-sm text-foreground/50">

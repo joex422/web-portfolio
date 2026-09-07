@@ -5,11 +5,11 @@ export function Certifications() {
   return (
     <section className="mx-auto max-w-3xl px-6 py-16">
       <Reveal>
-        <h2 className="mb-10 text-2xl font-semibold tracking-tight">
+        <h2 className="mb-10 text-2xl font-medium tracking-[-0.04em]">
           Certifications &amp; Education
         </h2>
 
-        <div className="flex flex-col gap-6 border-t border-foreground/10 pt-8">
+        <div className="flex flex-col gap-6 border-t border-hairline pt-8">
           {certifications.map((cert) => {
             const content = (
               <>

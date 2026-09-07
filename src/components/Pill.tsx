@@ -11,8 +11,10 @@ const base =
   "inline-flex items-center rounded-full px-4 py-1.5 font-mono text-[13px] tracking-tight whitespace-nowrap transition-all duration-150";
 
 const tones = {
+  // White panel on the #FAFAFA ground — the tonal step does the separating,
+  // so the border stays a hairline rather than an elevation shadow.
   outline:
-    "border border-foreground/15 text-foreground/70 hover:-translate-y-0.5 hover:border-foreground/30 hover:text-foreground",
+    "border border-hairline bg-surface text-muted-foreground hover:-translate-y-0.5 hover:border-accent hover:text-foreground",
   solid: "bg-foreground text-background hover:-translate-y-0.5 hover:bg-foreground/85",
 };
 

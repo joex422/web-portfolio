@@ -39,7 +39,7 @@ export function Timeline({ count, children }: { count: number; children: ReactNo
       <div ref={ref} className="relative">
         <div
           aria-hidden
-          className="absolute top-2 bottom-2 left-[5px] w-px bg-foreground/10"
+          className="absolute top-2 bottom-2 left-[5px] w-px bg-hairline"
         />
         <motion.div
           aria-hidden

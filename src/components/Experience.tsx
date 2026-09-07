@@ -9,7 +9,7 @@ export function Experience() {
   return (
     <section className="mx-auto max-w-3xl px-6 py-16">
       <Reveal>
-        <h2 className="mb-10 text-2xl font-semibold tracking-tight">
+        <h2 className="mb-10 text-2xl font-medium tracking-[-0.04em]">
           Work Experience
         </h2>
       </Reveal>
@@ -34,7 +34,7 @@ export function Experience() {
                     </div>
                   )}
                   <div>
-                    <h3 className="text-lg font-semibold tracking-tight">
+                    <h3 className="text-lg font-medium tracking-[-0.02em]">
                       {job.role} — {job.company}
                     </h3>
                     <span className="font-mono text-[13px] tracking-tight text-muted-foreground">

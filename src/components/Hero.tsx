@@ -28,7 +28,7 @@ export function Hero() {
 
       <motion.h1
         variants={item}
-        className="max-w-5xl text-[clamp(3rem,11vw,8.5rem)] leading-[0.95] font-bold tracking-tight"
+        className="max-w-5xl text-[clamp(3rem,11vw,8.5rem)] leading-[0.95] font-medium tracking-[-0.06em]"
       >
         {profile.name}
       </motion.h1>

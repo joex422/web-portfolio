@@ -1,9 +1,15 @@
 @import "tailwindcss";
 
+/* Neutral ramp is pure (R=G=B) and the page floor is off-white with white
+   reserved for panels — both taken from the vercel.com taste extraction
+   (see vercel.com.md at the repo root). Accent stays #F190A7. */
 :root {
-  --background: #ffffff;
-  --foreground: #111111;
-  --muted-foreground: #6b6b6b;
+  --background: #fafafa;
+  --surface: #ffffff;
+  --foreground: #171717;
+  --muted-foreground: #4d4d4d;
+  --subtle-foreground: #8f8f8f;
+  --hairline: #ebebeb;
   --accent: #f190a7;
   --accent-deep: #d95f7f;
   --accent-soft: #ffd6e2;
@@ -13,15 +19,21 @@
    picks up these values instead, so components (Pill, links) don't need
    separate dark variants. */
 .surface-inverted {
-  --background: #191919;
-  --foreground: #f2f2f2;
-  --muted-foreground: #9a9a9a;
+  --background: #171717;
+  --surface: #212121;
+  --foreground: #fafafa;
+  --muted-foreground: #a1a1a1;
+  --subtle-foreground: #8f8f8f;
+  --hairline: #2e2e2e;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-surface: var(--surface);
   --color-foreground: var(--foreground);
   --color-muted-foreground: var(--muted-foreground);
+  --color-subtle-foreground: var(--subtle-foreground);
+  --color-hairline: var(--hairline);
   --color-accent: var(--accent);
   --color-accent-deep: var(--accent-deep);
   --color-accent-soft: var(--accent-soft);
@@ -32,6 +44,15 @@
 body {
   background: var(--background);
   color: var(--foreground);
+}
+
+/* vercel.com ships both :focus-visible and prefers-reduced-motion handling on
+   its marketing page; this site had neither. For a portfolio a recruiter may
+   tab through, the keyboard ring is worth more than the pixels it costs. */
+:focus-visible {
+  outline: 2px solid var(--accent-deep);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 @keyframes terminal-cursor {
