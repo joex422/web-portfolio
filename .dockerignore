@@ -1,0 +1,9 @@
+node_modules
+.next
+.git
+.gitignore
+.nvmrc
+npm-debug.log*
+README.md
+*.md
+.env*
