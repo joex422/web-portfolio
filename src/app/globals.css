@@ -87,48 +87,8 @@ body {
   animation-play-state: paused;
 }
 
-/* Hero backdrop: slow drifting orbs. Transform/opacity only so they stay on
-   the compositor and never trigger layout during the hero's scroll range. */
-@keyframes drift-a {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-  50% {
-    transform: translate3d(6%, -8%, 0) scale(1.12);
-  }
-}
-
-@keyframes drift-b {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0) scale(1.08);
-  }
-  50% {
-    transform: translate3d(-7%, 6%, 0) scale(0.95);
-  }
-}
-
-@keyframes drift-c {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0) scale(0.96);
-  }
-  50% {
-    transform: translate3d(4%, 9%, 0) scale(1.1);
-  }
-}
-
-.animate-drift-a {
-  animation: drift-a 19s ease-in-out infinite;
-}
-.animate-drift-b {
-  animation: drift-b 24s ease-in-out infinite;
-}
-.animate-drift-c {
-  animation: drift-c 31s ease-in-out infinite;
-}
-
+/* Hero backdrop: orbit rings. Transform/opacity only so they stay on the
+   compositor and never trigger layout during the hero's scroll range. */
 @keyframes spin-slow {
   to {
     transform: rotate(360deg);
@@ -145,9 +105,6 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .animate-marquee,
-  .animate-drift-a,
-  .animate-drift-b,
-  .animate-drift-c,
   .animate-spin-slow,
   .animate-spin-slower {
     animation: none;
