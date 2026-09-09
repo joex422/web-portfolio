@@ -1,0 +1,8 @@
+<svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+  <rect width="256" height="256" rx="56" fill="#1d1d1f"/>
+  <!-- prompt chevron, matches the Terminal component's accent-colored "➜" -->
+  <path d="M62 84 L134 128 L62 172" stroke="#F190A7" stroke-width="22"
+        stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- cursor block -->
+  <rect x="152" y="150" width="66" height="22" rx="3" fill="#F5F5F5"/>
+</svg>
