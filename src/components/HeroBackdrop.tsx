@@ -2,12 +2,18 @@
 
 import { useEffect, useRef } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
+import { FrameLoop } from "./FrameLoop";
 
 /**
- * Animated objects behind the hero: two concentric orbit rings and a dot
- * grid. Kept neutral (no accent colour) so the hero background stays plain
- * per the Vercel-taste direction — accent pink is reserved for pills, tags,
- * and the terminal, not painted across the page.
+ * Hero background: the same two Flow-generated wireframe illustrations used
+ * elsewhere on the page (network-forming, cluster-assembling), reused here
+ * as faded, continuously-looping layers rather than scroll-scrubbed —
+ * there's no scroll range behind the hero's fixed-height content to bind to,
+ * so FrameLoop ping-pongs them on a timer instead.
+ *
+ * Kept faint (low opacity, no accent colour) so the page background stays
+ * plain per the Vercel-taste direction and the two illustrations read as
+ * texture, not competing content, behind the name.
  *
  * Interactive bit: the whole field parallaxes against the cursor. Motion
  * values are used rather than React state so the movement never re-renders
@@ -21,8 +27,10 @@ export function HeroBackdrop() {
   const sx = useSpring(mx, { stiffness: 60, damping: 20, mass: 0.6 });
   const sy = useSpring(my, { stiffness: 60, damping: 20, mass: 0.6 });
 
-  const ringX = useTransform(sx, (v) => v * -14);
-  const ringY = useTransform(sy, (v) => v * -14);
+  const leftX = useTransform(sx, (v) => v * -18);
+  const leftY = useTransform(sy, (v) => v * -10);
+  const rightX = useTransform(sx, (v) => v * 18);
+  const rightY = useTransform(sy, (v) => v * 10);
   const gridX = useTransform(sx, (v) => v * 8);
   const gridY = useTransform(sy, (v) => v * 8);
 
@@ -59,17 +67,30 @@ export function HeroBackdrop() {
         />
       </motion.div>
 
-      {/* orbit rings — neutral, no accent color */}
+      {/* network-forming illustration — upper left, bleeding off-canvas */}
       <motion.div
-        style={{ x: ringX, y: ringY }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+        style={{ x: leftX, y: leftY }}
+        className="absolute top-[-8%] left-[-14%] w-[46%] min-w-[420px] opacity-[0.16] [mask-image:radial-gradient(ellipse_75%_75%_at_50%_50%,#000_40%,transparent_92%)]"
       >
-        <div className="animate-spin-slow h-[560px] w-[560px] rounded-full border border-foreground/10 sm:h-[720px] sm:w-[720px]">
-          <span className="absolute top-0 left-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-foreground/30" />
-        </div>
-        <div className="animate-spin-slower absolute top-1/2 left-1/2 h-[380px] w-[380px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-foreground/[0.08] sm:h-[500px] sm:w-[500px]">
-          <span className="absolute bottom-0 left-1/2 h-1.5 w-1.5 -translate-x-1/2 translate-y-1/2 rounded-full bg-foreground/25" />
-        </div>
+        <FrameLoop
+          framesDir="/frames/hero"
+          frameCount={60}
+          fps={16}
+          className="h-auto w-full"
+        />
+      </motion.div>
+
+      {/* cluster-assembling illustration — lower right, bleeding off-canvas */}
+      <motion.div
+        style={{ x: rightX, y: rightY }}
+        className="absolute right-[-14%] bottom-[-14%] w-[46%] min-w-[420px] opacity-[0.16] [mask-image:radial-gradient(ellipse_75%_75%_at_50%_50%,#000_40%,transparent_92%)]"
+      >
+        <FrameLoop
+          framesDir="/frames/skills"
+          frameCount={60}
+          fps={16}
+          className="h-auto w-full"
+        />
       </motion.div>
 
       {/* fade the whole field into the page background at the bottom seam */}

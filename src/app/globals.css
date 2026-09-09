@@ -4,7 +4,7 @@
    reserved for panels — both taken from the vercel.com taste extraction
    (see vercel.com.md at the repo root). Accent stays #F190A7. */
 :root {
-  --background: #fafafa;
+  --background: #ffffff;
   --surface: #ffffff;
   --foreground: #171717;
   --muted-foreground: #4d4d4d;
@@ -87,26 +87,8 @@ body {
   animation-play-state: paused;
 }
 
-/* Hero backdrop: orbit rings. Transform/opacity only so they stay on the
-   compositor and never trigger layout during the hero's scroll range. */
-@keyframes spin-slow {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.animate-spin-slow {
-  animation: spin-slow 46s linear infinite;
-}
-
-.animate-spin-slower {
-  animation: spin-slow 78s linear infinite reverse;
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .animate-marquee,
-  .animate-spin-slow,
-  .animate-spin-slower {
+  .animate-marquee {
     animation: none;
   }
 }
