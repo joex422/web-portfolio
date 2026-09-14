@@ -96,6 +96,7 @@ export const skillCategories: { name: string; items: string[] }[] = [
       "HAProxy ingress",
       "private registry & image mirroring",
       "K3s",
+      "Istio",
       "Helm",
       "Docker",
     ],
@@ -162,6 +163,8 @@ export const skillCategories: { name: string; items: string[] }[] = [
       "secrets management",
       "IPSec VPN",
       "DevSecOps",
+      "Kyverno policy-as-code",
+      "Trivy vulnerability scanning",
     ],
   },
   {
@@ -249,11 +252,12 @@ export const experience: {
 
 export const selfDirected: { bullets: string[] } = {
   bullets: [
-    "Two-tier homelab Kubernetes estate, continuously operated: a 3-node kubeadm cluster (Cilium CNI, MetalLB L2 load balancing, containerd) running production workloads, plus a K3s cluster for development — both run through real upgrade, certificate-rotation, and failure scenarios",
+    "Two-tier homelab Kubernetes estate, continuously operated: a 3-node kubeadm cluster (Cilium CNI, MetalLB L2 load balancing, containerd) running production workloads, plus a K3s development cluster running Istio service mesh and Kyverno policy-as-code admission control ahead of promoting either to prod — both run through real upgrade, certificate-rotation, and failure scenarios",
     "GitOps delivery with ArgoCD in an app-of-apps pattern — a root Application bootstraps every other workload from Git, with automated sync, pruning, and self-heal so cluster drift is reconciled rather than patched in place",
     "Hosts this portfolio and internal homelab services on the platform, with ingress and TLS termination, persistent storage classes, RBAC and namespace quotas, a private image registry, and a full Prometheus/Grafana + ELK observability stack — built to enterprise patterns",
+    "CI/CD for this portfolio itself: GitHub Actions builds and publishes the container image to GHCR on every push to main, gated by a Trivy vulnerability scan of the image filesystem before it ships",
     "HA data tier: MariaDB Galera cluster behind an evaluated proxy layer (HAProxy / MaxScale / ProxySQL), with backup, restore, and node-loss drills",
-    "Platform roadmap in progress: Gateway API for HTTP routing in place of classic ingress, and Trivy image and manifest scanning wired into the delivery pipeline",
+    "Platform roadmap in progress: Gateway API for HTTP routing in place of classic ingress",
     "Bash-based CKA exam simulator running against a disposable k3d sandbox; AWS serverless projects for SAA preparation",
   ],
 };
