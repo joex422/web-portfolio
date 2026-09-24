@@ -248,6 +248,34 @@ export const experience: {
       "Python automation for security (IoC IP filtering) and operations (system health checks)",
     ],
   },
+  {
+    role: "Software Engineer",
+    company: "Urban Farming Partners Singapore",
+    logo: "/companies/urban-farming.png",
+    dates: "Oct 2022 — Apr 2024",
+    context: "End-to-end IoT monitoring platform turning plant-sensor telemetry into dashboards, mobile apps, and analyst-ready datasets.",
+    tags: [
+      "MERN",
+      "Next.js",
+      "Vercel",
+      "MQTT",
+      "WebSockets",
+      "Swift",
+      "Flutter",
+      "JWT",
+      "Docker",
+      "GitHub Actions",
+    ],
+    bullets: [
+      "Designed and delivered an end-to-end IoT monitoring platform, turning raw sensor data from plant-monitoring microcontrollers into real-time dashboards, mobile apps, and analyst-ready datasets",
+      "Built responsive dashboards with the MERN stack and Next.js, deployed on Vercel, visualising soil moisture, temperature, and humidity readings",
+      "Built MQTT and WebSocket streaming and transformation pipelines to ingest, clean, and aggregate telemetry from a fleet of plant-monitoring devices",
+      "Partnered with data analysts to define schemas and expose query-ready datasets for trend analysis and anomaly detection",
+      "Delivered a native iPadOS app in Swift for on-site monitoring and alerts, plus a cross-platform Flutter companion app",
+      "Secured REST APIs with JWT authentication and role-based access control",
+      "Implemented CI/CD with Docker and GitHub Actions, plus monitoring for pipeline health and device uptime",
+    ],
+  },
 ];
 
 export const selfDirected: { bullets: string[] } = {
