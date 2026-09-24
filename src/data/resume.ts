@@ -191,13 +191,14 @@ export const experience: {
   bullets: string[];
 }[] = [
   {
-    role: "DevSecOps / Platform Engineer",
+    role: "AI Platform Engineer",
     company: "NCS",
     logo: "/companies/ncs.png",
     dates: "Nov 2025 — Present",
     context: "Video intelligence and enterprise AI infrastructure — on-prem, government security baseline.",
     tags: [
       "OpenShift",
+      "GPU-backed nodes",
       "MariaDB Galera",
       "HAProxy",
       "ELK",
@@ -212,7 +213,7 @@ export const experience: {
       "Built and run MariaDB Galera multi-master HA — survives node loss with no failover downtime, fronted by HAProxy for routing and health checks",
       "ELK monitoring across cluster, systemd, and MariaDB logs — dashboards and alerts that surface failures before users report them",
       "Own the Linux layer — patching, kernel and package management, resource limits, storage mounts, sequenced to keep production up",
-      "Day-1 build and Day-2 ops on an enterprise AI platform, plus database ownership of schema, tuning, backup and recovery",
+      "Day-1 build and Day-2 ops on an enterprise AI platform running on GPU-backed nodes, plus database ownership of schema, tuning, backup and recovery",
       "Provision infrastructure with Terraform — environments rebuilt from code, not reassembled by hand",
       "Harden to CIS and government IM8 baselines; remediate scan findings and produce the audit evidence",
       "Privileged access through CyberArk, service credentials in Vault — no long-lived secrets in configs or node images",
