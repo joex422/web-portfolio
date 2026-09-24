@@ -224,7 +224,7 @@ export const experience: {
     role: "DevOps / Infrastructure Engineer",
     company: "Singtel",
     logo: "/companies/singtel.webp",
-    dates: "Sep 2024 — Jul 2025",
+    dates: "Aug 2024 — Sep 2025",
     context: "Infrastructure and delivery behind Singtel's NaaS, 5G, and multi-access edge computing products.",
     tags: [
       "Kubernetes",
@@ -260,6 +260,7 @@ export const experience: {
       "Vercel",
       "MQTT",
       "WebSockets",
+      "Confluent Kafka",
       "Swift",
       "Flutter",
       "JWT",
@@ -269,7 +270,7 @@ export const experience: {
     bullets: [
       "Designed and delivered an end-to-end IoT monitoring platform, turning raw sensor data from plant-monitoring microcontrollers into real-time dashboards, mobile apps, and analyst-ready datasets",
       "Built responsive dashboards with the MERN stack and Next.js, deployed on Vercel, visualising soil moisture, temperature, and humidity readings",
-      "Built MQTT and WebSocket streaming and transformation pipelines to ingest, clean, and aggregate telemetry from a fleet of plant-monitoring devices",
+      "Built MQTT and WebSocket ingestion feeding a Confluent Kafka streaming layer, cleaning, transforming, and aggregating telemetry from a fleet of plant-monitoring devices",
       "Partnered with data analysts to define schemas and expose query-ready datasets for trend analysis and anomaly detection",
       "Delivered a native iPadOS app in Swift for on-site monitoring and alerts, plus a cross-platform Flutter companion app",
       "Secured REST APIs with JWT authentication and role-based access control",
