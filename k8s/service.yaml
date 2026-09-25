@@ -6,7 +6,7 @@ metadata:
   labels:
     environment: prod
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   selector:
     app: web-portfolio
   ports:
