@@ -6,7 +6,10 @@ export const profile = {
   phone: "+65 9271 7760",
   email: "joe44824@gmail.com",
   whatsapp: { label: "WhatsApp", href: "https://wa.me/6592717760" },
-  linkedin: { label: "linkedin.com/in/zaw-wana", href: "https://linkedin.com/in/zaw-wana" },
+  linkedin: {
+    label: "linkedin.com/in/zaw-wana",
+    href: "https://linkedin.com/in/zaw-wana",
+  },
   github: { label: "github.com/joex422", href: "https://github.com/joex422" },
   site: { label: "joecool.work", href: "https://joecool.work" },
   resumeHref: "/Zaw_Wana_Resume.pdf",
@@ -147,7 +150,17 @@ export const skillCategories: { name: string; items: string[] }[] = [
   },
   {
     name: "Automation & IaC",
-    items: ["Terraform", "Ansible", "Jenkins", "GitLab CI", "ArgoCD / GitOps", "Git", "Python", "Bash", "operational runbooks"],
+    items: [
+      "Terraform",
+      "Ansible",
+      "Jenkins",
+      "GitLab CI",
+      "ArgoCD / GitOps",
+      "Git",
+      "Python",
+      "Bash",
+      "operational runbooks",
+    ],
   },
   {
     name: "Security & Hardening",
@@ -195,7 +208,8 @@ export const experience: {
     company: "NCS",
     logo: "/companies/ncs.png",
     dates: "Nov 2025 — Present",
-    context: "Video intelligence and enterprise AI infrastructure — on-prem, government security baseline.",
+    context:
+      "Video intelligence and enterprise AI infrastructure — on-prem, government security baseline.",
     tags: [
       "OpenShift",
       "GPU-backed nodes",
@@ -226,7 +240,8 @@ export const experience: {
     company: "Singtel",
     logo: "/companies/singtel.webp",
     dates: "Aug 2024 — Sep 2025",
-    context: "Infrastructure and delivery behind Singtel's NaaS, 5G, and multi-access edge computing products.",
+    context:
+      "Infrastructure and delivery behind Singtel's NaaS, 5G, and multi-access edge computing products.",
     tags: [
       "Kubernetes",
       "Helm",
@@ -254,7 +269,8 @@ export const experience: {
     company: "Urban Farming Partners Singapore",
     logo: "/companies/urban-farming.png",
     dates: "Oct 2022 — Apr 2024",
-    context: "End-to-end IoT monitoring platform turning plant-sensor telemetry into dashboards, mobile apps, and analyst-ready datasets.",
+    context:
+      "End-to-end IoT monitoring platform turning plant-sensor telemetry into dashboards, mobile apps, and analyst-ready datasets.",
     tags: [
       "MERN",
       "Next.js",
@@ -298,6 +314,7 @@ export const certifications: {
   date: string;
   id?: string;
   certificateHref?: string;
+  logoHref?: string;
 }[] = [
   {
     name: "Certified Kubernetes Administrator (CKA)",
@@ -305,6 +322,7 @@ export const certifications: {
     date: "Aug 2026",
     id: "LF-ijwzjz1ojo",
     certificateHref: "/certificates/CKA_Zaw_Wana.pdf",
+    logoHref: "/certificates/cka-logo.png",
   },
 ];
 

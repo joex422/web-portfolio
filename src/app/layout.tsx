@@ -1,32 +1,24 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Kanit } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const kanit = Kanit({
+  variable: "--font-kanit",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Zaw Wana — Platform / Site Reliability Engineer",
+  title: "Zaw Wana -- Platform / Site Reliability Engineer",
   description:
-    "Certified Kubernetes Administrator running production container platforms and Linux fleets. Kubernetes, OpenShift, Linux, observability, and infrastructure automation.",
+    "Zaw Wana is a Certified Kubernetes Administrator and Platform / Site Reliability Engineer in Singapore. Explore production platforms, GitOps delivery, IoT systems, and engineering experience.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col bg-background text-foreground">
-        {children}
-      </body>
+    <html lang="en" className={`${kanit.variable} h-full antialiased`}>
+      <body className="min-h-full bg-[#0C0C0C]">{children}</body>
     </html>
   );
 }
