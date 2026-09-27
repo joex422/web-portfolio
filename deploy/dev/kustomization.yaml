@@ -8,4 +8,4 @@ resources:
   - cloudflared.yaml
 images:
   - name: ghcr.io/joex422/web-portfolio
-    newTag: dev-26a8a288f270433c537edccbbbc1b975b53d63d8
+    newTag: dev-da12646385f4f83846cd9225f1f46986ca387578
