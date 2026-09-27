@@ -168,7 +168,8 @@ function MarqueeSection() {
       const offset = (window.scrollY - sectionTop + window.innerHeight) * 0.3;
       [first.current, second.current].forEach((row, index) => {
         if (!row) return;
-        const cycle = row.scrollWidth / 3;
+        // Five copies keep the shorter media collection filled on wide screens.
+        const cycle = (row.scrollWidth + 12) / 5;
         const shift = (((offset - 200) % cycle) + cycle) % cycle;
         row.style.transform = `translate3d(${index === 0 ? -cycle + shift : -cycle - shift}px, 0, 0)`;
       });
@@ -197,15 +198,18 @@ function MarqueeSection() {
   return (
     <section
       ref={section}
-      aria-label="Visual inspiration"
+      aria-label="Homelab demos"
       className="overflow-hidden bg-[#0C0C0C] pt-24 pb-10 sm:pt-32 md:pt-40"
     >
       <div className="mb-7 flex items-center justify-between px-6 text-[10px] font-light tracking-[0.22em] text-[#D7E2EA]/50 uppercase md:px-10">
-        <span>Technology meets imagination</span>
-        <span>Visual explorations / 2026</span>
+        <span>Platform engineering in action</span>
+        <span>Homelab demos / 2026</span>
       </div>
       <div className="flex flex-col gap-3" aria-hidden="true">
-        {[marqueeImages.slice(0, 11), marqueeImages.slice(11)].map(
+        {[
+          marqueeImages,
+          [...marqueeImages.slice(2), ...marqueeImages.slice(0, 2)],
+        ].map(
           (row, index) => (
             <div
               key={index}
@@ -213,7 +217,7 @@ function MarqueeSection() {
               className="flex w-max gap-3"
               style={{ willChange: reduced ? undefined : "transform" }}
             >
-              {[...row, ...row, ...row].map((src, i) => (
+              {Array.from({ length: 5 }, () => row).flat().map((src, i) => (
                 <div
                   key={`${i}-${src}`}
                   className="marquee-tile relative h-[270px] w-[420px] shrink-0 overflow-hidden rounded-2xl bg-[#18181b]"
