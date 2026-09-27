@@ -23,3 +23,20 @@ Production continues using `main`, `.github/workflows/docker-publish.yml`, and
 The workflow uses the repository's temporary `GITHUB_TOKEN` to publish the image
 and commit the deployment tag. Its bot commit does not start another build.
 Superseded builds skip the deployment commit, and concurrency cancels older runs.
+
+## Public domain
+
+<https://zawwana.com/> serves the dev portfolio through the dedicated Cloudflare
+Tunnel `portfolio-dev`. The proxied apex CNAME targets the tunnel ID recorded in
+`cloudflare/portfolio-dev.json`, which also records its remotely managed ingress
+configuration. Two cloudflared connectors run on the dev cluster and connect to
+the portfolio's ClusterIP service. Argo CD manages their deployment.
+
+The connector token is bootstrapped directly into Kubernetes Secret
+`portfolio-dev-tunnel-token` in `web-portfolio-dev`, with key `token`. It is not
+stored in Git, and the connector does not need the Cloudflare account API token
+or any R2 credentials. If rebuilding the cluster, retrieve the tunnel token from
+Cloudflare and restore this Secret before syncing the connector deployment.
+
+Cloudflare manages public HTTPS; no inbound router port forwarding is needed.
+The existing production tunnel remains separate.

@@ -1,0 +1,17 @@
+{
+  "tunnelName": "portfolio-dev",
+  "tunnelId": "8f7b0993-fd7b-4446-b256-bad4c715125e",
+  "hostname": "zawwana.com",
+  "config": {
+    "ingress": [
+      {
+        "hostname": "zawwana.com",
+        "service": "http://web-portfolio-dev.web-portfolio-dev.svc.cluster.local:80",
+        "originRequest": {}
+      },
+      {
+        "service": "http_status:404"
+      }
+    ]
+  }
+}
