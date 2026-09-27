@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: web-portfolio-dev
+  namespace: argocd
+  labels:
+    environment: dev
+spec:
+  project: dev
+  source:
+    repoURL: https://github.com/joex422/web-portfolio.git
+    targetRevision: dev
+    path: deploy/dev
+  destination:
+    server: https://192.168.1.80:6443
+    namespace: web-portfolio-dev
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+    retry:
+      limit: 5
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m
