@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
-  <title>Zaw Wana — ZW monogram</title>
-  <defs><linearGradient id="surface" x1="0" y1="0" x2="80" y2="80" gradientUnits="userSpaceOnUse"><stop stop-color="#f5f7fa"/><stop offset="1" stop-color="#dce3eb"/></linearGradient></defs>
-  <rect x="2" y="2" width="76" height="76" rx="23" fill="url(#surface)"/>
-  <rect x="7" y="7" width="66" height="66" rx="19" stroke="white" stroke-opacity=".7"/>
-  <g transform="translate(8 8)" stroke="#345bdb" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 19H29L11 45H29"/><path d="M33 19L39 45L46 30L53 45L59 19"/></g>
-</svg>

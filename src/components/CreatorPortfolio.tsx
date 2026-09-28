@@ -41,14 +41,12 @@ import {
 import { AnimatedText, FadeIn, useMotionPreference } from "./creator-motion";
 
 import { InteractiveAvatar } from "./InteractiveAvatar";
-import { BrandLogo } from "./BrandLogo";
-import { ThemeToggle } from "./ThemeToggle";
 
 export function ContactButton({ className = "" }: { className?: string }) {
   return (
     <a
       href={`mailto:${profile.email}`}
-      className={`contact-button neo-button inline-flex items-center justify-center gap-3 rounded-full px-8 py-3 text-xs font-medium tracking-widest uppercase transition-transform duration-200 hover:-translate-y-1 sm:px-10 sm:py-3.5 sm:text-sm md:px-12 md:py-4 md:text-base ${className}`}
+      className={`contact-button inline-flex items-center justify-center gap-3 rounded-full px-8 py-3 text-xs font-medium tracking-widest uppercase transition-transform duration-200 hover:scale-105 sm:px-10 sm:py-3.5 sm:text-sm md:px-12 md:py-4 md:text-base ${className}`}
     >
       Contact Me
       <ArrowUpRight size={18} aria-hidden="true" />
@@ -69,7 +67,7 @@ export function LiveProjectButton({
       href={href}
       target={external ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}
-      className="neo-button inline-flex shrink-0 items-center justify-center gap-2 rounded-full border border-hairline px-5 py-3 text-xs font-medium tracking-widest text-foreground uppercase transition-colors hover:bg-surface sm:px-8 sm:text-sm lg:px-10 lg:py-3.5 lg:text-base"
+      className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full border-2 border-[#D7E2EA] px-5 py-3 text-xs font-medium tracking-widest text-[#D7E2EA] uppercase transition-colors hover:bg-[#D7E2EA]/10 sm:px-8 sm:text-sm lg:px-10 lg:py-3.5 lg:text-base"
     >
       {label}
       <ArrowUpRight size={18} aria-hidden="true" />
@@ -77,105 +75,82 @@ export function LiveProjectButton({
   );
 }
 
-function PortfolioHeader() {
+function HeroSection() {
   return (
-    <header className="portfolio-header">
-      <div className="portfolio-nav neo-raised">
-        <BrandLogo />
-        <nav aria-label="Main navigation" className="nav-links neo-inset">
+    <section
+      className="hero-section relative isolate flex h-screen min-h-[640px] flex-col bg-[#0C0C0C]"
+      aria-labelledby="hero-heading"
+    >
+      <FadeIn
+        delay={0}
+        y={-20}
+        className="relative z-30 px-6 pt-6 md:px-10 md:pt-8"
+      >
+        <nav
+          aria-label="Main navigation"
+          className="flex justify-between text-sm font-medium tracking-wider text-[#D7E2EA] uppercase md:text-lg lg:text-[1.4rem]"
+        >
           {[
             ["About", "about"],
             ["Expertise", "services"],
             ["Projects", "projects"],
             ["Contact", "contact"],
           ].map(([label, id]) => (
-            <a key={id} href={`#${id}`}>
+            <a
+              key={id}
+              href={`#${id}`}
+              className="transition-opacity duration-200 hover:opacity-70"
+            >
               {label}
             </a>
           ))}
         </nav>
-        <ThemeToggle />
-      </div>
-    </header>
-  );
-}
-
-function HeroSection() {
-  return (
-    <section id="top" className="hero-section" aria-labelledby="hero-heading">
-      <div className="hero-panel neo-raised">
-        <div className="hero-copy">
-          <FadeIn delay={0} y={20}>
-            <div className="hero-eyebrow">
-              <span className="status-dot" /> Platform & site reliability
-              engineer
-            </div>
-          </FadeIn>
-          <FadeIn delay={0.1} y={25}>
-            <h1 id="hero-heading" className="hero-title">
-              Hi, i&apos;m
-              <br />
-              <span className="hero-heading">Zaw Wana.</span>
-            </h1>
-          </FadeIn>
-          <FadeIn delay={0.2} y={20}>
-            <p className="hero-description">
-              I build the platforms
-              <br className="hidden sm:block" /> that keep things running.
-            </p>
-            <p className="hero-note">
-              Resilient systems. Thoughtful automation.
-              <br />
-              An engineer who cares about the details.
-            </p>
-          </FadeIn>
-          <FadeIn delay={0.3} y={20}>
-            <div className="hero-actions">
-              <ContactButton />
-              <a
-                className="neo-button resume-button"
-                href={profile.resumeHref}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Download size={16} /> Résumé
-              </a>
-            </div>
-          </FadeIn>
-          <FadeIn delay={0.4} y={15}>
-            <div className="hero-location">
-              <MapPin size={14} aria-hidden="true" />
-              {profile.location}
-              <span className="location-divider" /> CKA certified
-            </div>
-          </FadeIn>
-        </div>
-        <FadeIn delay={0.35} y={30} className="hero-visual">
-          <div className="avatar-orbit neo-inset">
-            <div className="hero-portrait">
-              <InteractiveAvatar
-                src={creatorAssets.portrait}
-                closedSrc={creatorAssets.portraitBlink}
-              />
-            </div>
-          </div>
-          <div className="avatar-caption neo-raised">
-            <span className="status-dot" /> Human behind the infrastructure
-          </div>
-          <span className="hero-orbit-label">BUILD. OPERATE. IMPROVE.</span>
+      </FadeIn>
+      <div className="mt-6 overflow-hidden sm:mt-4 md:-mt-5">
+        <FadeIn delay={0.15} y={40}>
+          <h1
+            id="hero-heading"
+            className="hero-heading hero-title w-full text-center text-[14vw] leading-none font-black tracking-tight whitespace-nowrap uppercase sm:text-[15vw] md:text-[16vw] lg:text-[17.5vw]"
+          >
+            Hi, i&apos;m Zaw
+          </h1>
         </FadeIn>
-        <a
-          href="#about"
-          className="hero-scroll neo-button"
-          aria-label="Scroll to about"
+      </div>
+      <div className="relative z-20 mt-auto flex items-end justify-between gap-4 px-6 pb-7 sm:pb-8 md:px-10 md:pb-10">
+        <FadeIn
+          delay={0.35}
+          y={20}
+          className="max-w-[160px] sm:max-w-[220px] md:max-w-[260px]"
         >
-          <ArrowDown size={18} />
-        </a>
+          <p className="text-[clamp(0.75rem,1.4vw,1.5rem)] leading-snug font-light tracking-wide text-[#D7E2EA] uppercase">
+            A platform engineer driven by building resilient and reliable
+            systems
+          </p>
+          <p className="mt-5 flex items-center gap-2 text-xs tracking-wider text-[#D7E2EA]/50 uppercase">
+            <MapPin size={12} aria-hidden="true" />
+            {profile.location}
+          </p>
+        </FadeIn>
+        <FadeIn delay={0.5} y={20}>
+          <ContactButton className="hero-contact" />
+        </FadeIn>
       </div>
-      <div className="hero-footnote">
-        <span>Built with care. Operated with intent.</span>
-        <span>Singapore / {new Date().getFullYear()}</span>
+      <div className="hero-portrait absolute top-1/2 left-1/2 z-10 w-[280px] -translate-x-1/2 -translate-y-1/2 sm:top-auto sm:bottom-0 sm:w-[360px] sm:translate-y-0 md:w-[440px] lg:w-[520px]">
+        <FadeIn delay={0.6} y={30}>
+          <InteractiveAvatar
+            src={creatorAssets.portrait}
+            closedSrc={creatorAssets.portraitBlink}
+          />
+        </FadeIn>
       </div>
+      <a
+        href="#about"
+        aria-label="Scroll to about"
+        className="hero-scroll absolute right-10 bottom-32 z-20 hidden items-center gap-3 text-[10px] tracking-[0.2em] text-[#D7E2EA]/50 uppercase lg:flex"
+      >
+        Scroll to explore
+        <ArrowDown size={14} />
+      </a>
     </section>
   );
 }
@@ -224,9 +199,9 @@ function MarqueeSection() {
     <section
       ref={section}
       aria-label="Homelab demos"
-      className="overflow-hidden bg-background pt-24 pb-10 sm:pt-32 md:pt-40"
+      className="overflow-hidden bg-[#0C0C0C] pt-24 pb-10 sm:pt-32 md:pt-40"
     >
-      <div className="mb-7 flex items-center justify-between px-6 text-[10px] font-light tracking-[0.22em] text-muted-foreground uppercase md:px-10">
+      <div className="mb-7 flex items-center justify-between px-6 text-[10px] font-light tracking-[0.22em] text-[#D7E2EA]/50 uppercase md:px-10">
         <span>Platform engineering in action</span>
         <span>Homelab demos / 2026</span>
       </div>
@@ -234,16 +209,15 @@ function MarqueeSection() {
         {[
           marqueeImages,
           [...marqueeImages.slice(2), ...marqueeImages.slice(0, 2)],
-        ].map((row, index) => (
-          <div
-            key={index}
-            ref={index === 0 ? first : second}
-            className="flex w-max gap-3"
-            style={{ willChange: reduced ? undefined : "transform" }}
-          >
-            {Array.from({ length: 5 }, () => row)
-              .flat()
-              .map((src, i) => (
+        ].map(
+          (row, index) => (
+            <div
+              key={index}
+              ref={index === 0 ? first : second}
+              className="flex w-max gap-3"
+              style={{ willChange: reduced ? undefined : "transform" }}
+            >
+              {Array.from({ length: 5 }, () => row).flat().map((src, i) => (
                 <div
                   key={`${i}-${src}`}
                   className="marquee-tile relative h-[270px] w-[420px] shrink-0 overflow-hidden rounded-2xl bg-[#18181b]"
@@ -270,8 +244,9 @@ function MarqueeSection() {
                   />
                 </div>
               ))}
-          </div>
-        ))}
+            </div>
+          ),
+        )}
       </div>
     </section>
   );
@@ -280,23 +255,71 @@ function MarqueeSection() {
 function AboutSection() {
   const about =
     "I'm Zaw Wana, a Certified Kubernetes Administrator and platform engineer based in Singapore. I build and operate Kubernetes platforms, automate infrastructure, and turn production incidents into more reliable systems. From enterprise AI infrastructure to my own homelab, I care about the details that keep things running. Let's build something resilient together.";
+  const decorations = [
+    {
+      src: creatorAssets.moon,
+      className:
+        "top-[4%] left-[1%] w-[120px] sm:left-[2%] sm:w-[160px] md:left-[4%] md:w-[210px]",
+      delay: 0.1,
+      x: -80,
+    },
+    {
+      src: creatorAssets.object,
+      className:
+        "bottom-[8%] left-[3%] w-[100px] sm:left-[6%] sm:w-[140px] md:left-[10%] md:w-[180px]",
+      delay: 0.25,
+      x: -80,
+    },
+    {
+      src: creatorAssets.lego,
+      className:
+        "top-[4%] right-[1%] w-[120px] sm:right-[2%] sm:w-[160px] md:right-[4%] md:w-[210px]",
+      delay: 0.15,
+      x: 80,
+    },
+    {
+      src: creatorAssets.group,
+      className:
+        "bottom-[8%] right-[3%] w-[130px] sm:right-[6%] sm:w-[170px] md:right-[10%] md:w-[220px]",
+      delay: 0.3,
+      x: 80,
+    },
+  ];
   return (
     <section
       id="about"
       aria-labelledby="about-heading"
-      className="about-section section-space px-5 sm:px-8 md:px-10"
+      className="about-section relative flex min-h-screen items-center justify-center px-5 py-20 sm:px-8 md:px-10"
     >
-      <div className="about-panel neo-inset relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center text-center">
+      {decorations.map((image) => (
+        <div
+          key={image.src}
+          className={`about-decoration pointer-events-none absolute ${image.className}`}
+          aria-hidden="true"
+        >
+          <FadeIn delay={image.delay} x={image.x} y={0} duration={0.9}>
+            <img
+              src={image.src}
+              alt=""
+              loading="lazy"
+              decoding="async"
+              width={220}
+              height={220}
+              className="h-auto w-full"
+            />
+          </FadeIn>
+        </div>
+      ))}
+      <div className="relative z-10 flex w-full flex-col items-center text-center">
         <div className="flex flex-col items-center gap-10 sm:gap-14 md:gap-16">
           <FadeIn delay={0} y={40}>
-            <p className="section-kicker mb-5">01 / Behind the platform</p>
             <h2 id="about-heading" className="hero-heading section-heading">
               About me
             </h2>
           </FadeIn>
           <AnimatedText
             text={about}
-            className="max-w-[680px] text-[clamp(1rem,2vw,1.35rem)] leading-relaxed font-medium text-foreground"
+            className="max-w-[560px] text-[clamp(1rem,2vw,1.35rem)] leading-relaxed font-medium text-[#D7E2EA]"
           />
         </div>
         <div className="mt-16 flex flex-col items-center gap-6 sm:mt-20 md:mt-24">
@@ -307,7 +330,7 @@ function AboutSection() {
             href={profile.resumeHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-xs tracking-widest text-muted-foreground uppercase transition-colors hover:text-foreground"
+            className="inline-flex items-center gap-2 text-xs tracking-widest text-[#D7E2EA]/60 uppercase transition-colors hover:text-[#D7E2EA]"
           >
             <Download size={14} />
             Download résumé
@@ -323,10 +346,9 @@ function ServicesSection() {
     <section
       id="services"
       aria-labelledby="services-heading"
-      className="services-section section-space px-5 text-foreground sm:px-8 md:px-10"
+      className="rounded-t-[40px] bg-white px-5 pt-20 pb-32 text-[#0C0C0C] sm:rounded-t-[50px] sm:px-8 sm:pt-24 sm:pb-40 md:rounded-t-[60px] md:px-10 md:pt-32 md:pb-44"
     >
       <FadeIn>
-        <p className="section-kicker mb-4 text-center">02 / What I bring</p>
         <h2
           id="services-heading"
           className="section-heading mb-16 text-center sm:mb-20 md:mb-28"
@@ -337,15 +359,15 @@ function ServicesSection() {
       <div className="mx-auto max-w-5xl">
         {services.map((service, index) => (
           <FadeIn key={service.name} delay={index * 0.1}>
-            <div className="service-item neo-raised neo-lift grid grid-cols-[70px_1fr] items-center gap-5 border-t border-hairline py-8 sm:grid-cols-[140px_1fr] sm:gap-10 sm:py-10 md:grid-cols-[200px_1fr] md:gap-14 md:py-12">
-              <span className="service-number text-[clamp(3rem,10vw,140px)] leading-none font-black tracking-tight">
+            <div className="grid grid-cols-[70px_1fr] items-center gap-5 border-t border-[#0C0C0C]/15 py-8 sm:grid-cols-[140px_1fr] sm:gap-10 sm:py-10 md:grid-cols-[200px_1fr] md:gap-14 md:py-12">
+              <span className="text-[clamp(3rem,10vw,140px)] leading-none font-black tracking-tight">
                 {String(index + 1).padStart(2, "0")}
               </span>
               <div>
                 <h3 className="mb-3 text-[clamp(1rem,2.2vw,2.1rem)] font-medium uppercase">
                   {service.name}
                 </h3>
-                <p className="max-w-2xl text-[clamp(0.85rem,1.6vw,1.25rem)] leading-relaxed font-light text-muted-foreground">
+                <p className="max-w-2xl text-[clamp(0.85rem,1.6vw,1.25rem)] leading-relaxed font-light text-[#0C0C0C]/60">
                   {service.description}
                 </p>
               </div>
@@ -382,14 +404,14 @@ function ProjectCard({
           scale: reduced ? 1 : scale,
           top: `calc(var(--project-sticky-top) + ${index * 28}px)`,
         }}
-        className="project-card neo-raised relative origin-top rounded-[40px] border border-hairline bg-background p-4 text-foreground sm:rounded-[50px] sm:p-6 md:rounded-[60px] md:p-8"
+        className="project-card relative origin-top rounded-[40px] border-2 border-[#D7E2EA] bg-[#0C0C0C] p-4 text-[#D7E2EA] sm:rounded-[50px] sm:p-6 md:rounded-[60px] md:p-8"
       >
         <div className="project-top mb-6 flex flex-wrap items-center gap-x-6 gap-y-4 md:mb-8 md:gap-x-10">
           <span className="text-[clamp(3rem,8vw,110px)] leading-none font-black tracking-tight">
             {String(index + 1).padStart(2, "0")}
           </span>
           <div className="min-w-0 flex-1">
-            <p className="mb-1 text-[10px] font-light tracking-widest text-muted-foreground uppercase sm:text-xs">
+            <p className="mb-1 text-[10px] font-light tracking-widest text-[#D7E2EA]/50 uppercase sm:text-xs">
               {project.category}
             </p>
             <h3 className="text-[clamp(1.3rem,3.4vw,3.4rem)] leading-tight font-medium tracking-tight uppercase">
@@ -423,7 +445,7 @@ function ProjectCard({
             className="project-image h-full min-h-0 w-full rounded-[40px] bg-[#191919] object-cover sm:rounded-[50px] md:rounded-[60px]"
           />
         </div>
-        <div className="mt-4 flex flex-wrap items-center justify-between gap-2 text-[10px] tracking-wider text-muted-foreground uppercase sm:text-xs">
+        <div className="mt-4 flex flex-wrap items-center justify-between gap-2 text-[10px] tracking-wider text-[#D7E2EA]/50 uppercase sm:text-xs">
           <span>{project.tags.join(" / ")}</span>
           <span>Concept artwork</span>
         </div>
@@ -442,18 +464,17 @@ function ProjectsSection() {
     <section
       id="projects"
       aria-labelledby="projects-heading"
-      className="projects-section section-space relative z-10 bg-background px-5 sm:px-8 md:px-10"
+      className="relative z-10 -mt-10 rounded-t-[40px] bg-[#0C0C0C] px-5 pt-20 pb-20 sm:-mt-12 sm:rounded-t-[50px] sm:px-8 sm:pt-24 md:-mt-14 md:rounded-t-[60px] md:px-10 md:pt-32"
     >
       <FadeIn>
-        <p className="section-kicker mb-4 text-center">03 / Selected work</p>
         <h2
           id="projects-heading"
           className="hero-heading section-heading mb-6 text-center"
         >
-          Projects
+          Project
         </h2>
       </FadeIn>
-      <p className="mb-16 text-center text-xs font-light tracking-[0.2em] text-muted-foreground uppercase sm:mb-20">
+      <p className="mb-16 text-center text-xs font-light tracking-[0.2em] text-[#D7E2EA]/50 uppercase sm:mb-20">
         Systems built. Lessons learned. Always evolving.
       </p>
       <div ref={container} className="relative mx-auto max-w-[1500px]">
@@ -471,11 +492,11 @@ function ProjectsSection() {
         {projects.map((project, index) => (
           <details
             key={project.name}
-            className="project-details neo-raised neo-lift group rounded-2xl border border-hairline p-5 open:border-hairline"
+            className="project-details group rounded-2xl border border-[#D7E2EA]/15 p-5 open:border-[#D7E2EA]/40"
           >
             <summary className="flex cursor-pointer list-none items-center justify-between gap-3 text-sm uppercase">
               <span>
-                <span className="mr-3 text-muted-foreground">0{index + 1}</span>
+                <span className="mr-3 text-[#D7E2EA]/40">0{index + 1}</span>
                 {project.name}
               </span>
               <ChevronDown
@@ -483,14 +504,14 @@ function ProjectsSection() {
                 className="shrink-0 transition-transform group-open:rotate-180"
               />
             </summary>
-            <p className="mt-5 text-sm font-light text-muted-foreground">
+            <p className="mt-5 text-sm font-light text-[#D7E2EA]/65">
               {project.description}
             </p>
             <ul className="mt-4 space-y-3">
               {project.details.map((detail) => (
                 <li
                   key={detail}
-                  className="border-t border-hairline pt-3 text-sm leading-relaxed font-light text-muted-foreground"
+                  className="border-t border-white/10 pt-3 text-sm leading-relaxed font-light text-[#D7E2EA]/65"
                 >
                   {detail}
                 </li>
@@ -519,7 +540,7 @@ function ExperienceSection() {
             >
               Experience
             </h2>
-            <span className="text-xs tracking-[0.2em] text-muted-foreground uppercase">
+            <span className="text-xs tracking-[0.2em] text-[#D7E2EA]/50 uppercase">
               From software to systems
             </span>
           </div>
@@ -527,11 +548,11 @@ function ExperienceSection() {
         {experience.map((job, index) => (
           <FadeIn key={job.company} delay={index * 0.1}>
             <details
-              className="experience-item neo-raised group border border-hairline p-6 sm:p-8"
+              className="experience-item group border-t border-[#D7E2EA]/20 py-7"
               open={index === 0}
             >
               <summary className="flex cursor-pointer list-none items-center gap-4 sm:gap-8">
-                <span className="hidden text-sm text-muted-foreground sm:block">
+                <span className="hidden text-sm text-[#D7E2EA]/40 sm:block">
                   0{index + 1}
                 </span>
                 {job.logo && (
@@ -548,7 +569,7 @@ function ExperienceSection() {
                   <h3 className="text-lg leading-tight font-medium uppercase sm:text-2xl">
                     {job.role}
                   </h3>
-                  <p className="mt-2 text-xs font-light tracking-wide text-muted-foreground sm:text-sm">
+                  <p className="mt-2 text-xs font-light tracking-wide text-[#D7E2EA]/50 sm:text-sm">
                     {job.company} · {job.dates}
                   </p>
                 </div>
@@ -558,14 +579,14 @@ function ExperienceSection() {
                 />
               </summary>
               <div className="pt-6 sm:pl-12">
-                <p className="mb-5 text-sm leading-relaxed font-light text-muted-foreground">
+                <p className="mb-5 text-sm leading-relaxed font-light text-[#D7E2EA]/65">
                   {job.context}
                 </p>
                 <div className="mb-6 flex flex-wrap gap-2">
                   {job.tags?.map((tag) => (
                     <span
                       key={tag}
-                      className="rounded-full border border-hairline px-3 py-1 text-[11px] text-muted-foreground"
+                      className="rounded-full border border-[#D7E2EA]/20 px-3 py-1 text-[11px] text-[#D7E2EA]/70"
                     >
                       {tag}
                     </span>
@@ -575,9 +596,9 @@ function ExperienceSection() {
                   {job.bullets.map((bullet) => (
                     <li
                       key={bullet}
-                      className="flex gap-3 text-sm leading-relaxed font-light text-muted-foreground"
+                      className="flex gap-3 text-sm leading-relaxed font-light text-[#D7E2EA]/70"
                     >
-                      <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" />
+                      <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-[#ba5bdd]" />
                       {bullet}
                     </li>
                   ))}
@@ -594,7 +615,7 @@ function ExperienceSection() {
 function CredentialsSection() {
   return (
     <section
-      className="toolkit-section section-space px-5 sm:px-8 md:px-10"
+      className="rounded-t-[40px] bg-[#151515] px-5 py-20 sm:rounded-t-[50px] sm:px-8 md:rounded-t-[60px] md:px-10 md:py-28"
       aria-labelledby="toolkit-heading"
     >
       <div className="mx-auto max-w-5xl">
@@ -610,7 +631,7 @@ function CredentialsSection() {
           {techStack.map((tech) => (
             <span
               key={tech.logo}
-              className="toolkit-chip neo-button flex items-center gap-3 rounded-full border border-hairline bg-background px-5 py-3 text-sm font-normal text-foreground sm:px-6 sm:py-3.5 sm:text-base"
+              className="toolkit-chip flex items-center gap-3 rounded-full border border-white/15 bg-[#0C0C0C] px-5 py-3 text-sm font-normal text-[#D7E2EA]/90 sm:px-6 sm:py-3.5 sm:text-base"
             >
               <img
                 src={`/logos/${tech.logo}.svg`}
@@ -618,17 +639,17 @@ function CredentialsSection() {
                 width={28}
                 height={28}
                 loading="lazy"
-                className="toolkit-logo h-9 w-9 shrink-0 object-contain sm:h-10 sm:w-10"
+                className="h-6 w-6 shrink-0 object-contain sm:h-7 sm:w-7"
               />
               {tech.label}
             </span>
           ))}
         </div>
-        <div className="grid gap-5 md:grid-cols-2">
+        <div className="grid gap-x-8 md:grid-cols-2">
           {skillCategories.map((category) => (
             <details
               key={category.name}
-              className="skill-category neo-inset group rounded-2xl p-5"
+              className="group border-t border-[#D7E2EA]/15 py-5"
             >
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-medium uppercase">
                 {category.name}
@@ -637,15 +658,15 @@ function CredentialsSection() {
                   className="transition-transform group-open:rotate-180"
                 />
               </summary>
-              <p className="pt-4 text-sm leading-relaxed font-light text-muted-foreground">
+              <p className="pt-4 text-sm leading-relaxed font-light text-[#D7E2EA]/60">
                 {category.items.join(" · ")}
               </p>
             </details>
           ))}
         </div>
-        <div className="mt-16 grid gap-8 border-t border-hairline pt-10 md:grid-cols-2">
+        <div className="mt-16 grid gap-8 border-t border-[#D7E2EA]/15 pt-10 md:grid-cols-2">
           <div>
-            <h3 className="mb-6 text-xs tracking-[0.2em] text-muted-foreground uppercase">
+            <h3 className="mb-6 text-xs tracking-[0.2em] text-[#D7E2EA]/50 uppercase">
               Certified & verified
             </h3>
             {certifications.map((certificate) => (
@@ -654,7 +675,7 @@ function CredentialsSection() {
                 href={certificate.certificateHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="certificate-card neo-raised neo-lift flex items-center gap-4 rounded-2xl border border-hairline p-5 transition-colors hover:border-accent sm:gap-5 sm:p-6"
+                className="certificate-card flex items-center gap-4 rounded-2xl border border-[#D7E2EA]/20 p-5 transition-colors hover:border-[#ba5bdd] sm:gap-5 sm:p-6"
               >
                 {certificate.logoHref ? (
                   <img
@@ -663,16 +684,16 @@ function CredentialsSection() {
                     width={1605}
                     height={1568}
                     loading="lazy"
-                    className="certificate-mark h-18 w-18 shrink-0 object-contain sm:h-24 sm:w-24"
+                    className="h-18 w-18 shrink-0 object-contain sm:h-24 sm:w-24"
                   />
                 ) : (
-                  <ShieldCheck size={28} className="shrink-0 text-accent" />
+                  <ShieldCheck size={28} className="shrink-0 text-[#ba5bdd]" />
                 )}
                 <div className="min-w-0">
                   <p className="text-lg leading-tight font-medium">
                     {certificate.name}
                   </p>
-                  <p className="mt-2 text-xs font-light text-muted-foreground">
+                  <p className="mt-2 text-xs font-light text-[#D7E2EA]/55">
                     {certificate.issuer} · {certificate.date}
                   </p>
                   <p className="mt-3 inline-flex items-center gap-1 text-xs uppercase">
@@ -684,26 +705,21 @@ function CredentialsSection() {
             ))}
           </div>
           <div>
-            <h3 className="mb-6 text-xs tracking-[0.2em] text-muted-foreground uppercase">
+            <h3 className="mb-6 text-xs tracking-[0.2em] text-[#D7E2EA]/50 uppercase">
               Education
             </h3>
             {education.map((item) => (
-              <div
-                key={item.school}
-                className="education-card neo-inset mb-6 rounded-2xl p-5"
-              >
+              <div key={item.school} className="mb-6">
                 <p className="text-lg leading-tight font-medium">{item.name}</p>
-                <p className="mt-2 text-sm font-light text-muted-foreground">
+                <p className="mt-2 text-sm font-light text-[#D7E2EA]/55">
                   {item.school}
                 </p>
-                <p className="mt-1 text-xs text-muted-foreground">
-                  {item.dates}
-                </p>
+                <p className="mt-1 text-xs text-[#D7E2EA]/40">{item.dates}</p>
               </div>
             ))}
           </div>
         </div>
-        <details className="neo-inset group mt-12 rounded-2xl p-6">
+        <details className="group mt-12 border-t border-[#D7E2EA]/15 pt-6">
           <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-sm uppercase">
             More from the homelab
             <ChevronDown
@@ -715,7 +731,7 @@ function CredentialsSection() {
             {selfDirected.bullets.map((bullet) => (
               <li
                 key={bullet}
-                className="text-sm leading-relaxed font-light text-muted-foreground"
+                className="text-sm leading-relaxed font-light text-[#D7E2EA]/65"
               >
                 {bullet}
               </li>
@@ -751,11 +767,11 @@ function ContactSection() {
   return (
     <footer
       id="contact"
-      className="contact-section relative px-5 pt-16 pb-8 sm:px-8 md:px-10"
+      className="relative overflow-hidden bg-[#0C0C0C] px-5 pt-24 pb-8 sm:px-8 md:px-10 md:pt-32"
     >
-      <div className="contact-panel neo-raised mx-auto max-w-[1300px]">
+      <div className="mx-auto max-w-[1500px]">
         <FadeIn>
-          <p className="mb-6 text-xs tracking-[0.2em] text-muted-foreground uppercase">
+          <p className="mb-6 text-xs tracking-[0.2em] text-[#D7E2EA]/50 uppercase">
             Open to Platform / SRE roles in Singapore and remote
           </p>
           <h2 className="hero-heading text-[clamp(3.2rem,12vw,180px)] leading-[0.95] font-black tracking-tight uppercase">
@@ -768,28 +784,28 @@ function ContactSection() {
           <ContactButton />
           <a
             href={profile.resumeHref}
-            className="neo-button inline-flex items-center gap-2 rounded-full border border-hairline px-7 py-3 text-xs tracking-widest uppercase transition-colors hover:border-hairline"
+            className="inline-flex items-center gap-2 rounded-full border border-[#D7E2EA]/25 px-7 py-3 text-xs tracking-widest uppercase transition-colors hover:border-[#D7E2EA]"
           >
             <Download size={16} />
             Résumé
           </a>
         </div>
-        <div className="mt-14 flex flex-wrap items-center justify-between gap-6 border-t border-hairline pt-7">
-          <div className="email-controls flex flex-wrap items-center gap-3">
+        <div className="mt-14 flex flex-wrap items-center justify-between gap-6 border-t border-[#D7E2EA]/15 pt-7">
+          <div className="flex items-center gap-3">
             <a
               href={`mailto:${profile.email}`}
-              className="text-sm font-light text-muted-foreground transition-colors hover:text-accent"
+              className="text-sm font-light text-[#D7E2EA]/70 transition-colors hover:text-white"
             >
               {profile.email}
             </a>
             <button
               onClick={copyEmail}
               aria-label={copied ? "Email copied" : "Copy email address"}
-              className="neo-button rounded-full border border-hairline p-3 transition-colors hover:bg-surface"
+              className="rounded-full border border-[#D7E2EA]/20 p-2 transition-colors hover:bg-white/10"
             >
               {copied ? <Check size={14} /> : <Copy size={14} />}
             </button>
-            <span role="status" className="text-xs text-muted-foreground">
+            <span role="status" className="text-xs text-[#D7E2EA]/60">
               {copied
                 ? "Copied!"
                 : copyError
@@ -808,7 +824,7 @@ function ContactSection() {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-accent"
+                className="inline-flex items-center gap-2 text-[#D7E2EA]/65 transition-colors hover:text-white"
               >
                 <Icon size={14} />
                 {label}
@@ -817,24 +833,23 @@ function ContactSection() {
             ))}
             <a
               href={`tel:${profile.phone.replace(/\s+/g, "")}`}
-              className="text-muted-foreground hover:text-accent"
+              className="text-[#D7E2EA]/65 hover:text-white"
             >
               {profile.phone}
             </a>
           </div>
         </div>
-        <div className="mt-10 flex flex-wrap items-center justify-between gap-3 text-[10px] tracking-widest text-muted-foreground uppercase">
-          <BrandLogo compact />
+        <div className="mt-10 flex flex-wrap justify-between gap-3 text-[10px] tracking-widest text-[#D7E2EA]/35 uppercase">
           <span>
             © {new Date().getFullYear()} {profile.name}
           </span>
           <a
             href="#hero-heading"
-            className="transition-colors hover:text-foreground"
+            className="transition-colors hover:text-[#D7E2EA]"
           >
             Back to top ↑
           </a>
-          <a href="https://zawwana.com">zawwana.com</a>
+          <a href={profile.site.href}>joecool.work</a>
         </div>
       </div>
     </footer>
@@ -846,13 +861,12 @@ export function CreatorPortfolio() {
     <MotionConfig reducedMotion="user">
       <main
         id="root"
-        className="min-h-screen bg-background text-foreground"
+        className="min-h-screen bg-[#0C0C0C] text-[#D7E2EA]"
         style={{ overflowX: "clip" }}
       >
         <a href="#about" className="skip-link">
           Skip to content
         </a>
-        <PortfolioHeader />
         <HeroSection />
         <MarqueeSection />
         <AboutSection />
