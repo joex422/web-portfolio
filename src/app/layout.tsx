@@ -17,8 +17,20 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${kanit.variable} h-full antialiased`}>
-      <body className="min-h-full bg-[#0C0C0C]">{children}</body>
+    <html
+      lang="en"
+      data-theme="light"
+      suppressHydrationWarning
+      className={`${kanit.variable} h-full antialiased`}
+    >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var t;try{t=localStorage.getItem('zawwana-theme')}catch(e){}document.documentElement.dataset.theme=t==='dark'||(t!=='light'&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light'})()`,
+          }}
+        />
+      </head>
+      <body className="min-h-full bg-background">{children}</body>
     </html>
   );
 }
