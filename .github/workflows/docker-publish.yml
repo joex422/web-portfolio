@@ -2,7 +2,7 @@ name: Build and publish container image
 
 on:
   push:
-    branches: [main]
+    branches: [main, dev] # dev -> :dev, served at zawwana.com (homelab web-portfolio-dev)
   workflow_dispatch: {}
 
 env:
@@ -39,6 +39,7 @@ jobs:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
             type=raw,value=latest,enable={{is_default_branch}}
+            type=raw,value=dev,enable=${{ github.ref == 'refs/heads/dev' }}
             type=sha,format=short
 
       - name: Scan filesystem with Trivy
