@@ -1,7 +1,7 @@
 export const profile = {
   name: "Zaw Wana",
-  role: "Platform / Site Reliability Engineer",
-  focus: ["Kubernetes", "Linux", "Observability"],
+  role: "Senior Cloud DevOps Engineer",
+  focus: ["Azure", "Kubernetes", "GCC"],
   location: "Singapore",
   phone: "+65 9271 7760",
   email: "joe44824@gmail.com",
@@ -11,7 +11,7 @@ export const profile = {
   site: { label: "joecool.work", href: "https://joecool.work" },
   resumeHref: "/Zaw_Wana_Resume.pdf",
   summary:
-    "Certified Kubernetes Administrator running production container platforms and Linux fleets in enterprise and public-sector environments. Day-2 operations across the full cluster lifecycle: node lifecycle and etcd health, RBAC and SCC policy, network policies, routes and HAProxy ingress, resource quotas, and persistent storage. First-responder experience tracing failures from node to pod to service, with root-cause analysis fed back into runbooks, and ELK/Prometheus observability to catch failures before users do. Also owns the Linux OS layer beneath the platform — patching cycles, kernel and resource tuning, hardening, and storage — plus highly available data tiers and secrets through Vault and CyberArk. Currently supporting a government AI infrastructure programme under IM8-aligned security controls. Computing Science honours graduate, Singapore Institute of Technology.",
+    "Certified Kubernetes Administrator running production container platforms and Linux fleets in enterprise and public-sector environments. Day-2 operations across the full cluster lifecycle: node lifecycle and etcd health, RBAC and SCC policy, network policies, routes and HAProxy ingress, resource quotas, and persistent storage. First-responder experience tracing failures from node to pod to service, with root-cause analysis fed back into runbooks, and ELK/Prometheus observability to catch failures before users do. Also owns the Linux OS layer beneath the platform — patching cycles, kernel and resource tuning, hardening, and storage — plus highly available data tiers and secrets through Vault and CyberArk. Currently a Senior Cloud DevOps Engineer at Temus, running Azure platforms on Singapore's Government on Commercial Cloud (GCC). Computing Science honours graduate, Singapore Institute of Technology.",
 };
 
 // Hero terminal: the professional summary, split into chunks that each type
@@ -40,7 +40,7 @@ export const terminalLines: { command: string; output: string }[] = [
   {
     command: "cat current_role.txt",
     output:
-      "Currently supporting a government AI infrastructure programme under IM8-aligned security controls. Computing Science honours graduate, Singapore Institute of Technology.",
+      "Currently a Senior Cloud DevOps Engineer at Temus, running Azure platforms on Singapore's Government on Commercial Cloud (GCC). Computing Science honours graduate, Singapore Institute of Technology.",
   },
 ];
 
@@ -174,7 +174,8 @@ export const skillCategories: { name: string; items: string[] }[] = [
       "MongoDB",
       "Redis",
       "AWS (EC2, S3, IAM, CloudWatch, VPC)",
-      "Azure (Entra ID, RBAC, Policy)",
+      "Azure (AKS, Entra ID, RBAC, Policy)",
+      "Government on Commercial Cloud (GCC)",
       "hybrid & on-prem integration",
       "Proxmox virtualisation",
     ],
@@ -191,10 +192,22 @@ export const experience: {
   bullets: string[];
 }[] = [
   {
+    role: "Senior Cloud DevOps Engineer",
+    company: "Temus",
+    dates: "Nov 2026 — Present",
+    context: "Cloud platforms for Singapore public-sector agencies on Azure, under Government on Commercial Cloud (GCC).",
+    tags: ["Azure", "GCC", "AKS", "Terraform", "GitLab CI", "Kubernetes", "IM8"],
+    bullets: [
+      "Build and operate Azure infrastructure on GCC, the Singapore Government's commercial cloud landing zone",
+      "Infrastructure as code with Terraform, delivered through GitLab CI pipelines",
+      "Run containerised workloads on AKS, with security controls aligned to government IM8 policy",
+    ],
+  },
+  {
     role: "AI Platform Engineer",
     company: "NCS",
     logo: "/companies/ncs.png",
-    dates: "Nov 2025 — Present",
+    dates: "Nov 2025 — Nov 2026",
     context: "Video intelligence and enterprise AI infrastructure — on-prem, government security baseline.",
     tags: [
       "OpenShift",
