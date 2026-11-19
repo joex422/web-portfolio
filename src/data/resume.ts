@@ -194,6 +194,7 @@ export const experience: {
   {
     role: "Senior Cloud DevOps Engineer",
     company: "Temus",
+    logo: "/companies/temus.png",
     dates: "Nov 2026 — Present",
     context: "Cloud platforms for Singapore public-sector agencies on Azure, under Government on Commercial Cloud (GCC).",
     tags: ["Azure", "GCC", "AKS", "Terraform", "GitLab CI", "Kubernetes", "IM8"],
